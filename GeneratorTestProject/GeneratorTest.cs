@@ -9,6 +9,14 @@ namespace GeneratorTestProject
     public class GeneratorTest
     {
         [Test]
+        public void Empty()
+        {
+            string input = File.ReadAllText(@"..\..\..\GeneratorTestProject\InputFiles\empty.txt");
+            string output = Generator.GenerateHTML(input);
+            string trueOutput = File.ReadAllText(@"..\..\..\GeneratorTestProject\OutputFiles\emptyConverted.txt");
+            Assert.AreEqual(trueOutput, output);
+        }
+        [Test]
         public void LineInTheEnd()
         {
             string input = File.ReadAllText(@"..\..\..\GeneratorTestProject\InputFiles\lineInTheEnd.txt");
@@ -17,13 +25,5 @@ namespace GeneratorTestProject
             Assert.AreEqual(trueOutput, output);
         }
 
-        [Test]
-        public void Empty()
-        {
-            string input = File.ReadAllText(@"..\..\..\GeneratorTestProject\InputFiles\empty.txt");
-            string output = Generator.GenerateHTML(input);
-            string trueOutput = File.ReadAllText(@"..\..\..\GeneratorTestProject\OutputFiles\emptyConverted.txt");
-            Assert.AreEqual(trueOutput, output);
-        }
     }
 }
