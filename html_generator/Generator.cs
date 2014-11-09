@@ -16,11 +16,18 @@ namespace html_generator
             var replacement = @"<p>$1</p>";
             return regex.Replace(input, replacement);
         }
+        static public string HandleEms(string input)
+        {
+            var regex = new Regex(@"(?<=[^\\]_)(.+?)(?=[^\\]_)");
+            var replacement = @"<em>$1</em>";
+            return regex.Replace(input, replacement);
+        }
         static public string GenerateHTML(string input)
         {
             if (input == null)
                 return input;
             string output = HandleParargaphs(input);
+            output = HandleEms(output);
             return output;
         }
     }

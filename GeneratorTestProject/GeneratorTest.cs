@@ -6,13 +6,13 @@ using NUnit.Framework;
 namespace GeneratorTestProject
 {
     [TestFixture]
-    public class HandleParagraphTest
+    public class GeneratorTest
     {
         [Test]
         public void LineInTheEnd()
         {
             string input = File.ReadAllText(@"..\..\..\GeneratorTestProject\InputFiles\lineInTheEnd.txt");
-            string output = Generator.HandleParargaphs(input);
+            string output = Generator.GenerateHTML(input);
             string trueOutput = File.ReadAllText(@"..\..\..\GeneratorTestProject\OutputFiles\lineInTheEndConverted.txt");
             Assert.AreEqual(trueOutput, output);
         }
@@ -21,7 +21,7 @@ namespace GeneratorTestProject
         public void Empty()
         {
             string input = File.ReadAllText(@"..\..\..\GeneratorTestProject\InputFiles\empty.txt");
-            string output = Generator.HandleParargaphs(input);
+            string output = Generator.GenerateHTML(input);
             string trueOutput = File.ReadAllText(@"..\..\..\GeneratorTestProject\OutputFiles\emptyConverted.txt");
             Assert.AreEqual(trueOutput, output);
         }
